@@ -16,3 +16,26 @@ Containerzation Explained --> [Click Here](https://youtu.be/0qotVMX-J5s)
 5. The resource utilization of VM's is higher than compared to Containers.
 
 ![VM vs Container](https://images.contentstack.io/v3/assets/blt300387d93dabf50e/bltb6200bc085503718/5e1f209a63d1b6503160c6d5/containers-vs-virtual-machines.jpg)
+
+## Containers vs Images
+1. **Containers** are running instances of the Container Images
+2. **Images** are a complete package/template of the application that you wish to containerize. 
+3. Images are immutable (unchangeable) whereas Containers are mutable
+
+## Container Orchestration
+1. The process of automatically deploying and managing containers in the environments is called as **Container Orchestration** 
+2. Container Orchestration provides **High Availability** as there are multiple instances of our application running on different nodes.
+3. The application becomes **Highly Scalable** as and when the traffic on the application increases/decreases.
+4. It can help you to deploy the same application across different environments without needing to redesign it
+5. Container orchestration can be used to automate and manage tasks such as:
+
+    - Provisioning and deployment
+    - Configuration and scheduling 
+    - Resource allocation
+    - Container availability 
+    - Scaling or removing containers based on balancing workloads across your infrastructure
+    - Load balancing and traffic routing 
+    - Monitoring container health
+    - Configuring applications based on the container in which they will run
+    - Keeping interactions between containers secure
+    
