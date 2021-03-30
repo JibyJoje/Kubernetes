@@ -38,4 +38,25 @@ Containerzation Explained --> [Click Here](https://youtu.be/0qotVMX-J5s)
     - Monitoring container health
     - Configuring applications based on the container in which they will run
     - Keeping interactions between containers secure
-    
+
+## Kubernetes Architecture
+- **Node (minion)** - A machine (Physical or Virtual) on which kubernetes is installed. It is a worker machine where Kubernetes launches its containers.
+
+- **Cluster** - A set of nodes grouped together (for fault tolerant and sharing load).
+
+- **Master** - It's another node which has kubernetes installed on it and is configured as the master. The master watches over the nodes on the cluster and is responsible for the orchestration of the work on the nodes.
+
+**Installing Kubernetes installed the following components:**
+
+	- API Server
+	- Etcd service
+	- Kubelet service
+	- Container Runtime
+	- Controller
+	- Scheduler
+API Server - Acts as the front-end for the kubernetes service. Users, management devices, CLI all talk to the API server to communicate with the Kubernetes Cluster.
+Etcd service - It is a distributed key-value store which stores information that is required by Kubernetes to manage the cluster.
+Scheduler - It is responsible for distributing work on the containers across multiple nodes. It looks for new containers and assigns them to nodes.
+Controller - It is the brain of the kubernetes technology which is responsible for noticing and responding when a node, container or an endpoint goes down. The controller makes decisions to bring up new containers in such cases.
+Container Runtime - It is the underlying software that is used to run containers (e.g. Docker) 
+Kubelet - The agent that runs on each node in the cluster. The kubelet is responsible for making sure that the containers are running on the nodes as expected.
