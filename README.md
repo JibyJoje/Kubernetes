@@ -48,7 +48,7 @@ Containerzation Explained --> [Click Here](https://youtu.be/0qotVMX-J5s)
 
 **Installing Kubernetes installed the following components:**
 
-  * API Server
+	* API Server
   * Etcd service
   * Kubelet service
   * Container Runtime
