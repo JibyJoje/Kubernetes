@@ -48,12 +48,12 @@ Containerzation Explained --> [Click Here](https://youtu.be/0qotVMX-J5s)
 
 **Installing Kubernetes installed the following components:**
 
-* API Server
-* Etcd service
-* Kubelet service
-* Container Runtime
-* Controller
-* Scheduler
+  * API Server
+  * Etcd service
+  * Kubelet service
+  * Container Runtime
+  * Controller
+  * Scheduler
 
 API Server - Acts as the front-end for the kubernetes service. Users, management devices, CLI all talk to the API server to communicate with the Kubernetes Cluster.
 Etcd service - It is a distributed key-value store which stores information that is required by Kubernetes to manage the cluster.
