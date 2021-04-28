@@ -55,9 +55,13 @@ Containerzation Explained --> [Click Here](https://youtu.be/0qotVMX-J5s)
  	* Controller
  	* Scheduler
 
-API Server - Acts as the front-end for the kubernetes service. Users, management devices, CLI all talk to the API server to communicate with the Kubernetes Cluster.
-Etcd service - It is a distributed key-value store which stores information that is required by Kubernetes to manage the cluster.
+**API Server** - Acts as the front-end for the kubernetes service. Users, management devices, CLI all talk to the API server to communicate with the Kubernetes Cluster.
+
+**Etcd service** - It is a distributed key-value store which stores information that is required by Kubernetes to manage the cluster.
 Scheduler - It is responsible for distributing work on the containers across multiple nodes. It looks for new containers and assigns them to nodes.
-Controller - It is the brain of the kubernetes technology which is responsible for noticing and responding when a node, container or an endpoint goes down. The controller makes decisions to bring up new containers in such cases.
-Container Runtime - It is the underlying software that is used to run containers (e.g. Docker) 
-Kubelet - The agent that runs on each node in the cluster. The kubelet is responsible for making sure that the containers are running on the nodes as expected.
+
+**Controller** - It is the brain of the kubernetes technology which is responsible for noticing and responding when a node, container or an endpoint goes down. The controller makes decisions to bring up new containers in such cases.
+
+**Container Runtime** - It is the underlying software that is used to run containers (e.g. Docker) 
+
+**Kubelet** - The agent that runs on each node in the cluster. The kubelet is responsible for making sure that the containers are running on the nodes as expected.
