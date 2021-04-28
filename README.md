@@ -46,14 +46,14 @@ Containerzation Explained --> [Click Here](https://youtu.be/0qotVMX-J5s)
 
 - **Master** - It's another node which has kubernetes installed on it and is configured as the master. The master watches over the nodes on the cluster and is responsible for the orchestration of the work on the nodes.
 
-**Installing Kubernetes installed the following components:**
+- **Installing Kubernetes installed the following components:**
 
 	* API Server
-  * Etcd service
-  * Kubelet service
-  * Container Runtime
-  * Controller
-  * Scheduler
+ 	* Etcd service
+ 	* Kubelet service
+ 	* Container Runtime
+ 	* Controller
+ 	* Scheduler
 
 API Server - Acts as the front-end for the kubernetes service. Users, management devices, CLI all talk to the API server to communicate with the Kubernetes Cluster.
 Etcd service - It is a distributed key-value store which stores information that is required by Kubernetes to manage the cluster.
