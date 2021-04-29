@@ -65,3 +65,4 @@ Scheduler - It is responsible for distributing work on the containers across mul
 **Container Runtime** - It is the underlying software that is used to run containers (e.g. Docker) 
 
 **Kubelet** - The agent that runs on each node in the cluster. The kubelet is responsible for making sure that the containers are running on the nodes as expected.
+
