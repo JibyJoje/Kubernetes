@@ -6,7 +6,7 @@ This repository contains information about basics of Kubernetes and the resource
 2. Containers are an executable unit of software in which application code is packaged, along with its libraries and dependencies, in common ways so that it can be run anywhere, whether it be on desktop, traditional IT, or the cloud.
 3. To do this, containers take advantage of a form of operating system (OS) virtualization in which features of the OS (in the case of the Linux kernel, namely the namespaces and cgroups primitives) are leveraged to both isolate processes and control the amount of CPU, memory, and disk that those processes have access to.
 
-Containerzation Explained --> [Click Here](https://youtu.be/0qotVMX-J5s)
+> Containerzation Explained --> [Click Here](https://youtu.be/0qotVMX-J5s)
 
 ## Containers vs Virtual Machines
 1. The major drawback of Virtual machines is that the Guest OS bloats up the VM requiring extra resources.
@@ -58,7 +58,8 @@ Containerzation Explained --> [Click Here](https://youtu.be/0qotVMX-J5s)
 **API Server** - Acts as the front-end for the kubernetes service. Users, management devices, CLI all talk to the API server to communicate with the Kubernetes Cluster.
 
 **Etcd service** - It is a distributed key-value store which stores information that is required by Kubernetes to manage the cluster.
-Scheduler - It is responsible for distributing work on the containers across multiple nodes. It looks for new containers and assigns them to nodes.
+
+**Scheduler** - It is responsible for distributing work on the containers across multiple nodes. It looks for new containers and assigns them to nodes.
 
 **Controller** - It is the brain of the kubernetes technology which is responsible for noticing and responding when a node, container or an endpoint goes down. The controller makes decisions to bring up new containers in such cases.
 
@@ -66,3 +67,24 @@ Scheduler - It is responsible for distributing work on the containers across mul
 
 **Kubelet** - The agent that runs on each node in the cluster. The kubelet is responsible for making sure that the containers are running on the nodes as expected.
 
+##Master vs Node Architecture: 
+
+![K8s Architecture](https://platform9.com/wp-content/uploads/2019/05/kubernetes-constructs-concepts-architecture.jpg)
+
+- Kubernetes follows a Client-Server Architecture and it is possible to have a multi-master setup, but by default there is only a single master setup.
+
+- The master node consists of the following Kubernetes components: 
+
+	- kube-apiserver
+	- etcd storage
+	- kube-controller-manager
+	- cloud-controller-manger (Cloud Architecture)
+	- kube-scheduler
+	- DNS server
+
+- The worker nodes consists of the following Kubernetes components: 
+
+	- kubelet
+	- kube-proxy
+
+> K8s Master-Worker Architecture --> [Click Here](https://www.aquasec.com/cloud-native-academy/kubernetes-101/kubernetes-architecture/)
