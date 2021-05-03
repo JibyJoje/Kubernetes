@@ -67,7 +67,7 @@ This repository contains information about basics of Kubernetes and the resource
 
 **Kubelet** - The agent that runs on each node in the cluster. The kubelet is responsible for making sure that the containers are running on the nodes as expected.
 
-##Master vs Node Architecture: 
+## Master vs Node Architecture: 
 
 ![K8s Architecture](https://platform9.com/wp-content/uploads/2019/05/kubernetes-constructs-concepts-architecture.jpg)
 
