@@ -72,18 +72,14 @@ This repository contains information about basics of Kubernetes and the resource
 ![K8s Architecture](https://platform9.com/wp-content/uploads/2019/05/kubernetes-constructs-concepts-architecture.jpg)
 
 - Kubernetes follows a Client-Server Architecture and it is possible to have a multi-master setup, but by default there is only a single master setup.
-
 - The master node consists of the following Kubernetes components: 
-
 	- kube-apiserver
 	- etcd storage
 	- kube-controller-manager
 	- cloud-controller-manger (Cloud Architecture)
 	- kube-scheduler
 	- DNS server
-
 - The worker nodes consists of the following Kubernetes components: 
-
 	- kubelet
 	- kube-proxy
 
