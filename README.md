@@ -93,9 +93,9 @@ This repository contains information about basics of Kubernetes and the resource
 	kubectl cluster-info --> get the details about the current cluster
 	kubectl run nginx --image nginx --> deploys a nginx application on the cluster by pulling the nginx image from docker hub
 	kubectl describe pod <pod_name> --> gives a detailed description about the pod
-	
+
 
 ## Important K8s Articles:
 
-https://www.aquasec.com/cloud-native-academy/kubernetes-101/kubernetes-architecture/
-https://platform9.com/blog/kubernetes-enterprise-chapter-2-kubernetes-architecture-concepts/
+- https://www.aquasec.com/cloud-native-academy/kubernetes-101/kubernetes-architecture/
+- https://platform9.com/blog/kubernetes-enterprise-chapter-2-kubernetes-architecture-concepts/
