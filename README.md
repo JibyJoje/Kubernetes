@@ -84,3 +84,5 @@ This repository contains information about basics of Kubernetes and the resource
 	- kube-proxy
 
 > K8s Master-Worker Architecture --> [Click Here](https://www.aquasec.com/cloud-native-academy/kubernetes-101/kubernetes-architecture/)
+
+> K8s Architecture explained in Detail --> [Click Here](https://platform9.com/blog/kubernetes-enterprise-chapter-2-kubernetes-architecture-concepts/)
