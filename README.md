@@ -86,3 +86,16 @@ This repository contains information about basics of Kubernetes and the resource
 > K8s Master-Worker Architecture --> [Click Here](https://www.aquasec.com/cloud-native-academy/kubernetes-101/kubernetes-architecture/)
 
 > K8s Architecture explained in Detail --> [Click Here](https://platform9.com/blog/kubernetes-enterprise-chapter-2-kubernetes-architecture-concepts/)
+
+## Important K8s Commands:
+
+	kubectl get pods --> get the list of pods running in the current namespace
+	kubectl cluster-info --> get the details about the current cluster
+	kubectl run nginx --image nginx --> deploys a nginx application on the cluster by pulling the nginx image from docker hub
+	kubectl describe pod <pod_name> --> gives a detailed description about the pod
+	
+
+## Important K8s Articles:
+
+https://www.aquasec.com/cloud-native-academy/kubernetes-101/kubernetes-architecture/
+https://platform9.com/blog/kubernetes-enterprise-chapter-2-kubernetes-architecture-concepts/
