@@ -6,7 +6,7 @@ This repository contains information about basics of Kubernetes and the resource
 2. Containers are an executable unit of software in which application code is packaged, along with its libraries and dependencies, in common ways so that it can be run anywhere, whether it be on desktop, traditional IT, or the cloud.
 3. To do this, containers take advantage of a form of operating system (OS) virtualization in which features of the OS (in the case of the Linux kernel, namely the namespaces and cgroups primitives) are leveraged to both isolate processes and control the amount of CPU, memory, and disk that those processes have access to.
 
-> Containerzation Explained --> [Click Here](https://youtu.be/0qotVMX-J5s)
+> Containerzation Explained &rightarrow; [Click Here](https://youtu.be/0qotVMX-J5s)
 
 ## Containers vs Virtual Machines
 1. The major drawback of Virtual machines is that the Guest OS bloats up the VM requiring extra resources.
@@ -83,16 +83,30 @@ This repository contains information about basics of Kubernetes and the resource
 	- kubelet
 	- kube-proxy
 
-> K8s Master-Worker Architecture --> [Click Here](https://www.aquasec.com/cloud-native-academy/kubernetes-101/kubernetes-architecture/)
+> K8s Master-Worker Architecture &rightarrow; [Click Here](https://www.aquasec.com/cloud-native-academy/kubernetes-101/kubernetes-architecture/)
 
-> K8s Architecture explained in Detail --> [Click Here](https://platform9.com/blog/kubernetes-enterprise-chapter-2-kubernetes-architecture-concepts/)
+> K8s Architecture explained in Detail &rightarrow; [Click Here](https://platform9.com/blog/kubernetes-enterprise-chapter-2-kubernetes-architecture-concepts/)
+
+## Kubernetes Concepts:
+
+### Pods:
+
+- A Pod is a single instance of an application. And it is also the smallest object that you can create in Kubernetes.
+- To scale up/down your application you add new pods (instances) to your worker nodes and not add new containers on an existing pod. 
+- A pod can have multiple containers inside them, but usually they are not containers of the same kind (e.g. Node.js, nginx, redis) 
+- Containers within the same pod share the same network and communicate with each other over `localhost` and the same volume. 
+	
+	kubectl run nginx --image nginx &rightarrow;  deploys the instance of the image specified
+	kubectl get pods &rightarrow; gets the list of pods running in the current namespace 
+	kubectl describe pod <pod_name> &rightarrow; gives a detailed description about the pods.
+
 
 ## Important K8s Commands:
 
-	kubectl get pods --> get the list of pods running in the current namespace
-	kubectl cluster-info --> get the details about the current cluster
-	kubectl run nginx --image nginx --> deploys a nginx application on the cluster by pulling the nginx image from docker hub
-	kubectl describe pod <pod_name> --> gives a detailed description about the pod
+	kubectl get pods &rightarrow; get the list of pods running in the current namespace
+	kubectl cluster-info &rightarrow; get the details about the current cluster
+	kubectl run nginx --image nginx &rightarrow; deploys a nginx application on the cluster by pulling the nginx image from docker hub
+	kubectl describe pod <pod_name> &rightarrow; gives a detailed description about the pod
 
 
 ## Important K8s Articles:
