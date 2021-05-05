@@ -96,12 +96,12 @@ This repository contains information about basics of Kubernetes and the resource
  - A pod can have multiple containers inside them, but usually they are not containers of the same kind (e.g. Node.js, nginx, redis)
  - Containers within the same pod share the same network and communicate with each other over `localhost` and the same volume.
  
- ```kubectl run nginx --image nginx → deploys the instance of the image specified  
+ ```kubectl run <pod_name> --image <image_name> → deploys the instance of the image specified  
     kubectl get pods → gets the list of pods running in the current namespace  
     kubectl describe pod <pod_name> → gives a detailed description about the pods.
  ```
 
-
+> Pod Overview &rightarrow; [Click Here](https://kubernetes.io/docs/concepts/workloads/pods/pod-overview/)
 
 ## Important K8s Commands:
 
