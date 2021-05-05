@@ -91,14 +91,14 @@ This repository contains information about basics of Kubernetes and the resource
 
 ### Pods:
 
-- A Pod is a single instance of an application. And it is also the smallest object that you can create in Kubernetes.
-- To scale up/down your application you add new pods (instances) to your worker nodes and not add new containers on an existing pod. 
-- A pod can have multiple containers inside them, but usually they are not containers of the same kind (e.g. Node.js, nginx, redis) 
-- Containers within the same pod share the same network and communicate with each other over `localhost` and the same volume. 
-	
-	kubectl run nginx --image nginx &rightarrow;  deploys the instance of the image specified
-	kubectl get pods &rightarrow; gets the list of pods running in the current namespace 
-	kubectl describe pod <pod_name> &rightarrow; gives a detailed description about the pods.
+ - A Pod is a single instance of an application. And it is also the smallest object that you can create in Kubernetes.
+ - To scale up/down your application you add new pods (instances) to your worker nodes and not add new containers on an existing pod.
+ - A pod can have multiple containers inside them, but usually they are not containers of the same kind (e.g. Node.js, nginx, redis)
+ - Containers within the same pod share the same network and communicate with each other over `localhost` and the same volume.
+ 
+    kubectl run nginx --image nginx → deploys the instance of the image specified  
+    kubectl get pods → gets the list of pods running in the current namespace  
+    kubectl describe pod <pod_name> → gives a detailed description about the pods.
 
 
 ## Important K8s Commands:
