@@ -110,14 +110,25 @@ This repository contains information about basics of Kubernetes and the resource
 
 > Pod Overview &rightarrow; [Click Here](https://kubernetes.io/docs/concepts/workloads/pods/pod-overview/)
 
-Replication Controller:
+### Replication Controller:
 
 - The replication controller helps by running multiple instances of the application in a cluster, thus providing `High Availability`
 - The replication controller makes sure that the specified number of pods are always running in the cluster.
 - Another advantage of replication controllers is that it helps in `Load Balancing` and `Scaling`.
 - The replication controller can span across multiple nodes in a cluster.
 - `Replication Controller` and `Replica Set` both provide the same functionalities, but both are not the same
+- If the entire node fails, the Replication Controller re-spawns all the pods of that node on some different node.
+- The scope of the replication controller is decided by the `label-selector`
+- Whichever pod matches this label will be managed by the replication controller.
+- The difference between `Replication Controller` and `Replica Set` is that the `Replica Set` can manage pods that were not created as part of the `Replica Set` and this is managed by the `matchLabels` field under the `spec` section 
 
+```kubectl create -f <file_name> --> Creates the replication controller/ replica set with the specifications from the object defintion file
+kubectl get rc/replicationcontroller --> Gets the list of rc running in the current namespace
+kubectl describe rc <rc_name> --> gives a detailed description about the rc.
+kubectl scale rc <rc_name> --replicas=5 --> To scale up the replicas.
+kubectl delete rc <rc_name> --> Delete the replication Controller
+```
+> Difference between Replication Controller and Replica Set --> [Click Here](https://blog.knoldus.com/replicationcontroller-and-replicaset-in-kubernetes/)
 
 ## Important K8s Commands:
 
