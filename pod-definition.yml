@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod-yaml
+  labels:
+    name: pod-yaml
+    tier: frontend
+spec:
+  containers:
+    - name: yaml-container
+      image: nginx
