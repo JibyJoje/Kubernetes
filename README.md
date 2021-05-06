@@ -95,10 +95,17 @@ This repository contains information about basics of Kubernetes and the resource
  - To scale up/down your application you add new pods (instances) to your worker nodes and not add new containers on an existing pod.
  - A pod can have multiple containers inside them, but usually they are not containers of the same kind (e.g. Node.js, nginx, redis)
  - Containers within the same pod share the same network and communicate with each other over `localhost` and the same volume.
+ - Every object defintion YAML file in kubernetes will/must contain these 4 field:
+ 	- `apiVersion` --> depends on the `kind` of the object definition file.
+ 	- `kind` --> It is most commonly Pod, ReplicaSet, Service or Deployment
+ 	- `metadata` --> Contains data about the objects like name and labels
+ 	- `spec` --> This is where additional information pertaining to the object is defined.
+ - 
  
  ```kubectl run <pod_name> --image <image_name> → deploys the instance of the image specified  
     kubectl get pods → gets the list of pods running in the current namespace  
     kubectl describe pod <pod_name> → gives a detailed description about the pods.
+    kubectl apply -f <file_name> --> Creates the object in the cluster with the object defintion from the file
  ```
 
 > Pod Overview &rightarrow; [Click Here](https://kubernetes.io/docs/concepts/workloads/pods/pod-overview/)
