@@ -110,6 +110,15 @@ This repository contains information about basics of Kubernetes and the resource
 
 > Pod Overview &rightarrow; [Click Here](https://kubernetes.io/docs/concepts/workloads/pods/pod-overview/)
 
+Replication Controller:
+
+- The replication controller helps by running multiple instances of the application in a cluster, thus providing `High Availability`
+- The replication controller makes sure that the specified number of pods are always running in the cluster.
+- Another advantage of replication controllers is that it helps in `Load Balancing` and `Scaling`.
+- The replication controller can span across multiple nodes in a cluster.
+- `Replication Controller` and `Replica Set` both provide the same functionalities, but both are not the same
+
+
 ## Important K8s Commands:
 
 	kubectl get pods &rightarrow; get the list of pods running in the current namespace
