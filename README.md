@@ -137,6 +137,11 @@ kubectl delete rc <rc_name> --> Delete the replication Controller
 - Deployment ensures that only a certain number of pods are down while they are updated. This is decided by the `maxUnavailable` field, which defaults to 25%
 - Deployment also ensures that only a certain number of pods are created above the desired number of pods. This is decided by the `maxSurge` field, which defaults to 25%
 - All of the deployment's rollout history is kept in the system so that you can rollback anytime you want.
+- Everytime a deployment happens, it creates a rollout and the rollout creates a deployment revision.
+- There are two deployment strategies that are available with Kubernetes and they are `recreate` and `rolling-update`
+- The problem with the `recreate` deployment strategy is that when the depolyment upgrades to a newer revision the application becomes in-accessible because the entire pods are brought down at the same time.
+- In the `rolling-update` strategy the pods are brought down and upgraded in a rolling fashion, thus there are still few pods pods that are serving the application. And this is the default strategy followed by Kubernetes.
+
 
 ![Deployments](https://miro.medium.com/max/700/0*gqmjVsavMoxbmgId.gif)
 
@@ -158,6 +163,26 @@ kubectl edit deployment <deploy_name> --> Edit/Update the specifications of the 
 > Article from medium.com on Deployments --> [Click Here](https://medium.com/avmconsulting-blog/deployment-types-in-kubernetes-14b70ca7ef93)
 
 > Checkout advanced K8s Deployment strategies --> [Click Here](https://semaphoreci.com/blog/kubernetes-deployment)
+
+### Networking:
+
+- In kubernetes, all the pods inside a node are assigned a unique IP address. Unlike Docker where the IP address is assigned to the container
+- When kubernetes is installed, a internal private network is automatically created and all the pods get the IP addressed from the subnet of this private network.
+- All the pods are attached to this private network and the pods receive their IP's within this series.
+- There are five essential things to understand about networking in Kubernetes
+
+    Communication between containers in the same pod
+    Communication between pods on the same node
+    Communication between pods on different nodes
+    Communication between pods and services
+    How does DNS work? How do we discover IP addresses?
+
+
+> Networking in K8s --> [Click Here](https://www.stackrox.com/post/2020/01/kubernetes-networking-demystified/)
+
+> Networking explained simple --> [Click Here](https://matthewpalmer.net/kubernetes-app-developer/articles/kubernetes-networking-guide-beginners.html)
+
+
 
 ## Important K8s Commands:
 
