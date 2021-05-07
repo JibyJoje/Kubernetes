@@ -130,6 +130,34 @@ kubectl delete rc <rc_name> --> Delete the replication Controller
 ```
 > Difference between Replication Controller and Replica Set --> [Click Here](https://blog.knoldus.com/replicationcontroller-and-replicaset-in-kubernetes/)
 
+### Deployments:
+
+- Deployments are the objects that have the highest hierarchy amongst all K8s objects.
+- Creating a deployment creates a replicaset which creates a replicaset automatically based on the spec which in turn creates the pods with the number of replicas specified in the definition file.
+- Deployment ensures that only a certain number of pods are down while they are updated. This is decided by the `maxUnavailable` field, which defaults to 25%
+- Deployment also ensures that only a certain number of pods are created above the desired number of pods. This is decided by the `maxSurge` field, which defaults to 25%
+- All of the deployment's rollout history is kept in the system so that you can rollback anytime you want.
+
+![Deployments](https://miro.medium.com/max/700/0*gqmjVsavMoxbmgId.gif)
+
+```kubectl apply -f <file_name> --> Creates the Deployment object with the specifications from the definition file.
+kubectl get deployments --> Get the list of all deployments running in the current namespace
+kubectl rollout status deployment <deploy_name> --> Shows the rollout status of the deployment
+kubectl rollout history deployment <deploy_name> --> Shows the history of the revision of deployments
+kubectl rollout history deployment <deploy_name> --revision=2 --> See the details of each revision
+kubectl rollout undo deployment <deploy_name> --> rollback to the previous revision
+kubectl rollout undo deployment <deploy_name> --to-revision=2 --> rollback to a specific revision
+kubectl scale deployment <deploy_name> --replicas 10 --> Scaling a Deployment
+
+kubectl delete deployment <deploy_name> --> Delete the deployment
+kubectl describe deployment <deploy_name> --> gives a detailed description about the deployment
+kubectl edit deployment <deploy_name> --> Edit/Update the specifications of the deployment
+```
+
+> Deployments in Kubernetes --> [Click Here](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/)
+Article from medium.com on Deployments --> [Click Here](https://medium.com/avmconsulting-blog/deployment-types-in-kubernetes-14b70ca7ef93)
+Checkout advanced K8s Deployment strategies --> [Click Here](https://semaphoreci.com/blog/kubernetes-deployment)
+
 ## Important K8s Commands:
 
 	kubectl get pods &rightarrow; get the list of pods running in the current namespace
