@@ -154,7 +154,9 @@ kubectl edit deployment <deploy_name> --> Edit/Update the specifications of the 
 ```
 
 > Deployments in Kubernetes --> [Click Here](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/)
+
 > Article from medium.com on Deployments --> [Click Here](https://medium.com/avmconsulting-blog/deployment-types-in-kubernetes-14b70ca7ef93)
+
 > Checkout advanced K8s Deployment strategies --> [Click Here](https://semaphoreci.com/blog/kubernetes-deployment)
 
 ## Important K8s Commands:
