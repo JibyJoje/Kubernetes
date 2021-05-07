@@ -181,7 +181,32 @@ kubectl edit deployment <deploy_name> --> Edit/Update the specifications of the 
 
 > Networking explained simple --> [Click Here](https://matthewpalmer.net/kubernetes-app-developer/articles/kubernetes-networking-guide-beginners.html)
 
+### Services:
 
+- Services allow communication within the objects in the cluster and also outside the cluster.
+- In simple terms, a Service enables network access to a set of pods.
+- Services select the pods based on their labels and when a request is made to the service, it selects all pods in the cluster matching the service selector label.
+- They allow us to connect one application service with other application service or Users.
+- There are 3 different types of Services that are available:
+	- `NodePort` --> Allows the services to be accessible by the outside world by forwarding the internal IP and exposing it.
+	- `ClusterIP` --> Creates a virtual internal IP for the pods to communicate with each other
+	- `LoadBalancer` --> provisions a load balancer within the cluster.
+- **NodePort:** 
+	- A `NodePort` port can only be within a valid range of 30000 - 32767
+	- `targetPort` -  Port on the Application itself where the app is published.
+	- `Port` - Port on the Service object which is attached to the ClusterIP
+	- `NodePort` -  Port on which the app is exposed to the outside world
+
+
+![Services](https://matthewpalmer.net/kubernetes-app-developer/articles/service-route.gif)
+
+```kubectl apply -f <file_name> --> Create the Service with the specs specified in the definition file
+kubectl get svc --> get the list of services running in the current namespace.
+kubectl describe svc <svc_name> --> gives a detailed description about the service.
+kubectl delete svc <svc_name> --> Delete the service with the name specified
+```
+
+> Services Explained --> [Click Here](https://matthewpalmer.net/kubernetes-app-developer/articles/service-kubernetes-example-tutorial.html)
 
 ## Important K8s Commands:
 
