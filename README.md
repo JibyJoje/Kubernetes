@@ -164,18 +164,17 @@ kubectl edit deployment <deploy_name> --> Edit/Update the specifications of the 
 
 > Checkout advanced K8s Deployment strategies --> [Click Here](https://semaphoreci.com/blog/kubernetes-deployment)
 
-### Networking:
+### Networking
 
 - In kubernetes, all the pods inside a node are assigned a unique IP address. Unlike Docker where the IP address is assigned to the container
 - When kubernetes is installed, a internal private network is automatically created and all the pods get the IP addressed from the subnet of this private network.
 - All the pods are attached to this private network and the pods receive their IP's within this series.
 - There are five essential things to understand about networking in Kubernetes
-
-    Communication between containers in the same pod
-    Communication between pods on the same node
-    Communication between pods on different nodes
-    Communication between pods and services
-    How does DNS work? How do we discover IP addresses?
+	- Communication between containers in the same pod
+	- Communication between pods on the same node
+	- Communication between pods on different nodes
+	- Communication between pods and services
+	- How does DNS work? How do we discover IP addresses?
 
 
 > Networking in K8s --> [Click Here](https://www.stackrox.com/post/2020/01/kubernetes-networking-demystified/)
