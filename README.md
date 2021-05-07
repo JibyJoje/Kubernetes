@@ -148,15 +148,14 @@ kubectl rollout history deployment <deploy_name> --revision=2 --> See the detail
 kubectl rollout undo deployment <deploy_name> --> rollback to the previous revision
 kubectl rollout undo deployment <deploy_name> --to-revision=2 --> rollback to a specific revision
 kubectl scale deployment <deploy_name> --replicas 10 --> Scaling a Deployment
-
 kubectl delete deployment <deploy_name> --> Delete the deployment
 kubectl describe deployment <deploy_name> --> gives a detailed description about the deployment
 kubectl edit deployment <deploy_name> --> Edit/Update the specifications of the deployment
 ```
 
 > Deployments in Kubernetes --> [Click Here](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/)
-Article from medium.com on Deployments --> [Click Here](https://medium.com/avmconsulting-blog/deployment-types-in-kubernetes-14b70ca7ef93)
-Checkout advanced K8s Deployment strategies --> [Click Here](https://semaphoreci.com/blog/kubernetes-deployment)
+> Article from medium.com on Deployments --> [Click Here](https://medium.com/avmconsulting-blog/deployment-types-in-kubernetes-14b70ca7ef93)
+> Checkout advanced K8s Deployment strategies --> [Click Here](https://semaphoreci.com/blog/kubernetes-deployment)
 
 ## Important K8s Commands:
 
