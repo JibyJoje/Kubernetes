@@ -196,7 +196,12 @@ kubectl edit deployment <deploy_name> --> Edit/Update the specifications of the 
 	- `targetPort` -  Port on the Application itself where the app is published.
 	- `Port` - Port on the Service object which is attached to the ClusterIP
 	- `NodePort` -  Port on which the app is exposed to the outside world
-
+- **ClusterIP:**
+	- ClusterIP will create one common IP for all the related pods which are grouped together by the Service selector label.
+	- All the pods that need to communicate with these different services can communicate with the ClusterIP instead of individual IP of the pods as the IP of pods can change after they are restarted or deleted.
+- **LoadBalancer:**
+	- Provides a Load Balancing service for all the hosted applications on the cluster, out of the box.
+	- The endpoints from the pods are automatically configured to point to the load balancer based on the service selector label.
 
 ![Services](https://matthewpalmer.net/kubernetes-app-developer/articles/service-route.gif)
 
