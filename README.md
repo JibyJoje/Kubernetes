@@ -83,6 +83,30 @@ This repository contains information about basics of Kubernetes and the resource
 	- kubelet
 	- kube-proxy
 
+### ETCD Service:
+
+**What is ETCD?**
+- It is a distributed reliable key-value store that is Simple, Secure and Fast.
+- ETCD is fully replicated, which means all the nodes in the ETCD cluster has access to the full data store.
+- ETCD is fully consistent, which means that all the data reads is going to return the most recent data write.
+- ETCD is highly available, which means there is no single point of failure.
+
+> ETCD Explained &rightarrow; [Click Here](https://www.youtube.com/watch?v=OmphHSaO1sE)
+
+> ETCD Backup &rightarrow; [Click Here](https://www.youtube.com/watch?v=fnfLGOHNlWs)
+
+### Kube-api Server: 
+
+- The kube-api server validates and configures data for the apiobject
+- When an end-user uses the `kubectl` tool, they are actually making an API request to the kube-api for the requested information.
+- It is not mandatory to have the `kubectl` tool installed to communicate with the `api-server`. You can also communicate using `curl` request to the API server directly.
+- The `kube-scheduler` monitors the API server if any object has been created
+
+> kube api-server Explained &rightarrow; [Click Here](https://www.youtube.com/watch?v=EJGwWP_qFVw)
+
+
+
+
 > K8s Master-Worker Architecture &rightarrow; [Click Here](https://www.aquasec.com/cloud-native-academy/kubernetes-101/kubernetes-architecture/)
 
 > K8s Architecture explained in Detail &rightarrow; [Click Here](https://platform9.com/blog/kubernetes-enterprise-chapter-2-kubernetes-architecture-concepts/)
