@@ -83,6 +83,10 @@ This repository contains information about basics of Kubernetes and the resource
 	- kubelet
 	- kube-proxy
 
+> K8s Master-Worker Architecture &rightarrow; [Click Here](https://www.aquasec.com/cloud-native-academy/kubernetes-101/kubernetes-architecture/)
+
+> K8s Architecture explained in Detail &rightarrow; [Click Here](https://platform9.com/blog/kubernetes-enterprise-chapter-2-kubernetes-architecture-concepts/)
+
 ### ETCD Service:
 
 **What is ETCD?**
@@ -103,13 +107,6 @@ This repository contains information about basics of Kubernetes and the resource
 - The `kube-scheduler` monitors the API server if any object has been created
 
 > kube api-server Explained &rightarrow; [Click Here](https://www.youtube.com/watch?v=EJGwWP_qFVw)
-
-
-
-
-> K8s Master-Worker Architecture &rightarrow; [Click Here](https://www.aquasec.com/cloud-native-academy/kubernetes-101/kubernetes-architecture/)
-
-> K8s Architecture explained in Detail &rightarrow; [Click Here](https://platform9.com/blog/kubernetes-enterprise-chapter-2-kubernetes-architecture-concepts/)
 
 ## Kubernetes Concepts:
 
