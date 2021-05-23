@@ -327,10 +327,10 @@ kubectl get pods --selector env=dev
 - Taints and Tolerations do no guarantee that a pod will be placed on the node, it only guarantees that it accepts the pods that has the toleration for it. (Pods that have toleration may very well be placed on other nodes that has no taints)
 ```
 tolerations:
-	- key: "app"
-	  operator: "Equal"
-	  value: "blue"
-	  effect: "NoSchedule"
+  - key: "app"
+	operator: "Equal"
+	value: "blue"
+	effect: "NoSchedule"
 ```
 
 
