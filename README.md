@@ -328,9 +328,9 @@ kubectl get pods --selector env=dev
 ```
 tolerations:
   - key: "app"
-	operator: "Equal"
-	value: "blue"
-	effect: "NoSchedule"
+    operator: "Equal"
+    value: "blue"
+    effect: "NoSchedule"
 ```
 
 
