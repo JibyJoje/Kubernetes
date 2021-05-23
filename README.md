@@ -108,6 +108,63 @@ This repository contains information about basics of Kubernetes and the resource
 
 > kube api-server Explained &rightarrow; [Click Here](https://www.youtube.com/watch?v=EJGwWP_qFVw)
 
+### kube-controller manager:
+
+- A controller manager is a process that continuously monitors the state of various objects within the cluster and works towards bringing them to the desired state.
+- Some of the different types of controllers that are availble are:
+	- Node Controller
+	- Replication Controller
+	- Deployment Controller
+	- Endpoint Controller
+	- Namespace Controller
+	- Job Controller
+- All of the above mentioned controllers are binded together into a single pod within the cluster as the `kube-controller-manger` pod.
+
+> The video for `kube-controller` is the same link as the one for `kube-scheduler` shared below.
+
+### Kube-scheduler: 
+
+- The `kube-scheduler` is responsible for scheduling the pods/nodes onto the cluster.
+- The `scheduler` only decides which pod goes on which node. But, it is the duty of the `kubelet` to create the pod on the decided node.
+- The pods are scheduled on the nodes based on different criterias such as the resource requirements and limits, taints and tolerations, Node selectors and Node Affinity.
+
+> kube-controller and kube-scheduler explained --> [Click Here](https://www.youtube.com/watch?v=0YZdKdQUupA)
+
+### Kubelet:
+
+- The `kubelet` is responsible provisioning and deleting pods from the node as described by the scheduler.
+- The kubelet constantly sends notifications to the `kube-api` about the current status of the pods and the health of the nodes.
+- Only the `kubelet` cannot be installed as a pod on the cluster. It has to be manually installed on all the nodes using the kubernetes releases binary.
+
+### Kube Proxy:
+
+- Inside a K8s cluster, each pod can communicate with every other pod through the `Pod Network`
+- The `Pod Network` is a virtual network which spans across all the nodes in the cluster to which all the pods connect to.
+- The `kube-proxy` is responsible for looking out for new services, and every time a new service has been created it creates the appropriate rules to forward the traffic to these services and then to the backend pods.
+
+### Namespaces:
+
+- Namespaces are way to organize clusters into virtual sub-clusters. They can be helpful when different teams or projects share the same Kubernetes cluster.
+- Namespaces cannot be nested within each other
+- Kubernetes comes with three namespaces out of the box
+	- `Default` - This is where all the k8s objects are created by default for every kubernetes command executed.
+	- `kube-system` - This is used by the Kubernetes components and you should avoid creating any objects inside this namespace
+	- `kube-public` -  Used by public resources and it is not recommended to to be used by the users
+- Each namespace can be assigned a resource limit so that it can be guaranteed that the namespace doesn't use more than this limit specified.
+- A service in one namespace can communicate with a service in another namespace simply by providing their namespace name `db-service.dev.svc.cluster.local`
+	- `cluster.local` --> Domain
+	- `svc` --> sub-domain
+	- `dev` --> namespace
+	- `db-service` --> service
+- The `kubectl config set-context --current --namespace=dev` command can be used to set the current namespace to `dev` permanently.
+
+```
+kubectl get namespaces --> get the list of all namespaces in the cluster.
+kubectl config set-context --curent --namespace=dev --> Set the current namespace to dev
+kubectl get pods --all-namespaces --> get list of pods from all namespaces.
+```
+
+
 ## Kubernetes Concepts:
 
 ### Pods:

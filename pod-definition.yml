@@ -2,6 +2,7 @@ apiVersion: v1
 kind: Pod
 metadata:
   name: pod-yaml
+  #namespace: dev # Creates the pod in the dev namespace
   labels:
     name: pod-yaml
     tier: frontend
