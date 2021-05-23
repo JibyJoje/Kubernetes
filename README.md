@@ -307,7 +307,8 @@ kubectl delete svc <svc_name> --> Delete the service with the name specified
 - Labels support maximum `63 Characters`
 - Selectors are used by objects in k8s to identify other objects that needs to be connected/monitored 
 
-```kubectl get pods --selector env=dev
+```
+kubectl get pods --selector env=dev
 ```
 > Selectors and Labels Explained --> [Click Here](https://medium.com/@zwhitchcox/matchlabels-labels-and-selectors-explained-in-detail-for-beginners-d421bdd05362)
 
