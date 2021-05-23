@@ -164,7 +164,6 @@ kubectl config set-context --curent --namespace=dev --> Set the current namespac
 kubectl get pods --all-namespaces --> get list of pods from all namespaces.
 ```
 
-
 ## Kubernetes Concepts:
 
 ### Pods:
@@ -290,6 +289,49 @@ kubectl delete svc <svc_name> --> Delete the service with the name specified
 ```
 
 > Services Explained --> [Click Here](https://matthewpalmer.net/kubernetes-app-developer/articles/service-kubernetes-example-tutorial.html)
+
+## Scheduling:
+
+### Manual Scheduling:
+
+- If there is no `scheduler` in the cluster to schedule the pods, then the pods will be in a `pending` status. In this case, we can go ahead and manually schedule the pods.
+- We can manually schedule the pods on a node by using the `nodeName` field in the pod definition file under the `spec` section.
+
+> NodeName Explained --> [Click Here](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#nodename)
+
+### Labels and Selectors:
+
+- Labels are key-value pairs that are attached to the k8s objects such and pods, etc.
+- Each key must be unique for a given object
+- Labels can be used for querying and watching the objects
+- Labels support maximum `63 Characters`
+- Selectors are used by objects in k8s to identify other objects that needs to be connected/monitored 
+
+```kubectl get pods --selector env=dev
+```
+> Selectors and Labels Explained --> [Click Here](https://medium.com/@zwhitchcox/matchlabels-labels-and-selectors-explained-in-detail-for-beginners-d421bdd05362)
+
+### Taints and Tolerations:
+
+- Taints and Tolerations are available in K8s to decide what pods can be scheduled on a node.
+- `Taints` are set on `nodes`.
+- `Tolerations` are set on `pods`.
+- Command to apply taint to a node
+	- `kubectl taint nodes node-name key=value:taint-effect`
+	- `taint-effect` decides what happens to the pods that do not tolerate this taint. And there are three taint-effects available
+		- `NoSchedule` --> No new pods will be scheduled on this node
+		- `PreferNoSchedule` --> The scheulder will try not to schedule pods on this node, but is not guaranteed.
+		- `NoExecute` --> No new pods will scheduled on this node and all the existing pods on it will be evicted if it doesn't tolerate the taint.
+- `Tolerations` need to be applied in the pod definition file under the `spec` section.
+- Taints and Tolerations do no guarantee that a pod will be placed on the node, it only guarantees that it accepts the pods that has the toleration for it. (Pods that have toleration may very well be placed on other nodes that has no taints)
+```
+tolerations:
+	- key: "app"
+	  operator: "Equal"
+	  value: "blue"
+	  effect: "NoSchedule"
+```
+
 
 ## Important K8s Commands:
 

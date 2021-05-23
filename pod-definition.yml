@@ -10,3 +10,12 @@ spec:
   containers:
     - name: yaml-container
       image: nginx
+  #nodeName: node01 # Schedules the pod in the given node.
+
+  # The below code will enable Toleration on the tainted nodes
+  
+  #tolerations:
+   # - key: "app"
+    #  operator: "Equal"
+     # value: "blue"
+      #effect: "NoSchedule"
