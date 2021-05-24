@@ -10,6 +10,13 @@ spec:
   containers:
     - name: yaml-container
       image: nginx
+      resources:
+        requests:
+          memory: "1Gi"
+          cpu: 1
+        limits:
+          memory: "2Gi"
+          cpu: 2
   #nodeName: node01 # Schedules the pod in the given node.
 
   # The below code will enable Toleration on the tainted nodes

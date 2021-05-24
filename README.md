@@ -309,6 +309,8 @@ kubectl delete svc <svc_name> --> Delete the service with the name specified
 
 ```
 kubectl get pods --selector env=dev
+kubectl label pods <pod-name> key=value --> Labels the pod with the values
+kubectl get pods --show-labels
 ```
 > Selectors and Labels Explained --> [Click Here](https://medium.com/@zwhitchcox/matchlabels-labels-and-selectors-explained-in-detail-for-beginners-d421bdd05362)
 
@@ -333,6 +335,59 @@ tolerations:
     effect: "NoSchedule"
 ```
 
+> Taints and Tolerations --> [Click Here](https://www.youtube.com/watch?v=2UTF39q3xko)
+
+### Node Selectors and Node Affinity:
+
+- `nodeSelectors` can be added to the `spec` section of the pod defintion file.
+- It makes sure that the pod get scheduled on the node that matches this selection
+- You cannot pass conditions like `or` and `not` in `nodeSelectors`
+```
+nodeSelector:
+  size: Large
+```
+- `nodeAffinity` is similar to `nodeSelectors` except that you can pass complex expressions like `In`, `notIn`, `Exists` etc. 
+- There are 2 types of nodeAffinity currently available in k8s:
+	- `requiredDuringSchedulingIngoredDuringExecution`
+	- `preferredDuringSchedulingIngoredDuringExecution`
+	- `requiredDuringSchedulingRequiredDuringExecution` (Planned)
+```
+affinity:
+    nodeAffinity:
+      requiredDuringSchedulingIgnoredDuringExecution:
+        nodeSelectorTerms:
+        - matchExpressions:
+          - key: disktype
+            operator: In
+            values:
+            - ssd        
+```
+
+> Node Affinity Explained --> [Click Here](https://www.youtube.com/watch?v=IMLzwM4QPaE)
+
+### Resource Requirements and Limits:
+
+- `requests` under the `spec.resources` section of the pod definition file determines how much resources is required by the pod to start up
+- By default the minimum CPU that is requested by a container is `0.5` and the minimum memory that is requested is `256 MiB`.
+- `limits` under the `spec.resources` section of the pod defintion file determins how much resources can be consumed by the pod in total.
+- By default the maximum CPU that can be requested is `1 vCPU` and the maximum memory that can be requested is `512 MiB`.
+
+### Daemon Sets:
+
+- Daemon sets are responsible for making sure that atleast one instance of the pod is running in all the nodes in the cluster.
+- The object definition file for a daemon set is similar to a replicaset except that the `kind: DaemonSet`
+- The Daemonset definition file should not contain any field called `replicas` in the `spec` section.
+
+> Daemon set Explained --> [Click Here](https://www.youtube.com/watch?v=yYeUic8B6fM)
+
+### Static Pods:
+
+- Pods that are not managed by the `kube-api` server but are managed by the `kubelet` directly are called as Static pods.
+- The `kube-api` server doesnt monitor these pods, thus the creation/deletion are managed by the kubelet itself.
+- The directory for the manifest files that can be used by the kubelets are found under `/etc/kubernetes/manifests`
+- You can create only pods in this way and no other objects like the replicaset, deployments or services can be created.
+
+> Static pods Explained --> [Click Here](https://www.youtube.com/watch?v=KOiTWCyLy90)
 
 ## Important K8s Commands:
 
