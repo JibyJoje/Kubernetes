@@ -389,6 +389,63 @@ affinity:
 
 > Static pods Explained --> [Click Here](https://www.youtube.com/watch?v=KOiTWCyLy90)
 
+### Custom Scheduler:
+
+- You can add multiple custom schedulers to the K8s cluster by creating them as pods in the `kube-system` namespace.
+- Just copy the manifest file for the default scheduler from `/etc/kubernetes/manifests` and rename the scheduler fields to your custom requirement
+- Apply the definition file using the `kubectl apply` command and let the pod be created.
+- Then add the `schedulerName` field in the `spec` section of the pod defintion file so that the pod can be scheduled by this particular scheduler.
+
+> How scheduling works in K8s explained --> [Click Here](https://www.youtube.com/watch?v=8WdYk4oTnrw)
+
+## Logging and Monitoring:
+
+- You can install a `metric-server` inside the cluster to monitor the pods and the nodes by cloning the release from the following git repository:
+`git clone https://github.com/kodekloudhub/kubernetes-metrics-server.git`
+- There can be only one `metric-server` installed per cluster.
+- If you are using a `minikube` cluster, execute the following command:
+`minikube addons enable metrics-server`
+- All the logs required by the `metric-server` are got from the `cAdvisor` inside the kubelet.
+
+## Application Lifecycle Management:
+
+### Configuring Commands and Arguments:
+
+- You can add commands that needs to be executed by your K8s container by adding the `command` field under the `spec.containers` section in the pod definition file. Note that this corresponds to the `ENTRYPOINT` field incase you were to write a Dockerfile.
+- Any arguments that needs to be passed to this command can be passed via the `args` field under the `spec.containers` section. Note that this corresponds to the `CMD` field incase you were to write a Dockerfile
+- Inside the K8s definition file, the `command` and the `args` field should be passed in a JSON Array format.
+
+### ConfigMaps:
+
+- You can add environment variable to your pod definition file using the `env` field under the `spec.containers` section.
+- The `env` filed accepts fields in an array in a `name` and `value` format.
+- `configMaps` are used in kubernetes to pass configuration data to a pod in a key-value pair.
+- You can create configMaps in the imperative way using the following command:
+`kubectl create configmap <config-name> --from-literal=<key>=<value>`
+or
+`kubectl create configmap <config-name> --from-file=<file_name>`
+- You can also create configmaps using a configMap definition file and then execute the `kubectl apply` command to create the configMap.
+
+> Configmaps Explained --> [Click Here](https://www.youtube.com/watch?v=SnL7DW0errg)
+
+```
+kubectl create configmap <config-name> --from-literal=<key>=<value>
+kubectl create configmap <config-name> --from-file=<file_name>
+kubectl get configmaps
+kubectl describe confimaps <config-name>
+```
+
+### Secrets:
+
+- `Secrets` are similar to `configMaps` except that configmaps are used to store plain text, while the secrets can be used to store confidential data.
+- You can create secrets in the imperative way using the following command:
+`kubectl create secret generic <secret-name> --from-literal=<key>=<value>`
+or
+`kubectl create secret generic <secret-name> --from-file=<file-name>`
+- The object definition file of secrets is similar to configMaps except that the kind is `Secret` and the values to the key need to be encoded to `base64` before adding them to the definition file
+` echo -n <value> | base64`
+- 
+
 ## Important K8s Commands:
 
 	kubectl get pods &rightarrow; get the list of pods running in the current namespace
