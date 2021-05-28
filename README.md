@@ -444,7 +444,57 @@ or
 `kubectl create secret generic <secret-name> --from-file=<file-name>`
 - The object definition file of secrets is similar to configMaps except that the kind is `Secret` and the values to the key need to be encoded to `base64` before adding them to the definition file
 ` echo -n <value> | base64`
-- 
+
+## Cluster Maintenance:
+
+### OS Upgrades:
+
+- When a node ungergoes a failure, the pods on that node will also be deleted along with it.
+- Kubernetes waits for `5 mins` until the node comes up, if not all the pods scheduled on this node will be considered dead and will be deleted.
+- This can affect the applications that are not part of a replicaset to go under downtime.
+- If the pods are part of a replicaset, the pods will be re-scheduled on another available node.
+- The time which the kubelet waits for the pod come up again is managed by the `pod-eviction-timeout` which is found under `kube-controller-manager`.
+- If a OS upgrade is planned on a specific node, it is always better to `drain` the nodes before the upgrade.
+- Draining the node is the process by which the pods on a node are gracefully shut down and re-scheduled on other availble nodes within the cluster. 
+- The node can be drained using the following command:
+`kubectl drain <node-name>`
+- Then the node can be `cordoned` purposefully so that no new pods will be scheduled on this node until the maintenance is over.
+`kubectl cordon <node-name>`
+- The node must be manually `uncordoned` for pods to be scheduled on it.
+`kubectl uncordon <node-name>`
+
+```
+kubectl drain <node-name> --> Drains the pods from the node and cordons the node
+kubectl cordon <node-name> --> Marks the node as un-schedulable
+kubectl uncordon <node-name> --> Enables the node to be schedulable again
+```
+
+### Cluster Upgrade:
+
+- When ever a cluster needs to be taken for an upgrade, the master node components must be upgraded first.
+- When the master node is under maintenance, the kubernetes management components like the kube-api, scheduler and other components do not work
+- But this doesn't mean that the worker nodes will also stop functioning. Its only the features like automatic pod creation, scheduling and other features will not be available during this upgrade.
+- Steps to Upgrade the Cluster using **kubeadm:**
+	1. Determine the OS release on which the cluster is hosted.
+	2. Upgrade the library packages for your OS release and then execute `kubeadm upgrade plan` which will show the available versions to which you can upgrade your cluster.
+	3. `unhold` kubeadm, upgrade the version of kubeadm and then `hold` kubeadm back again.
+	4. Choose a version to upgrade to and run the command:
+	`kubeadm upgrade apply <upgrade-version>`
+	5. To upgrade the `kubelet` and the `kubectl` components you need to drain the nodes first:
+	`kubectl drain <node-name> --ignore-daemonsets`
+	6. Similar to kubeadm unhold, upgrade and hold the kubelet and kubectl versions again.
+	7. restart the kubelet service:
+		systemctl daemon-reload
+		systemctl restart kubelet
+	8. Bring back the node online by marking it as schedulable:
+	`kubectl uncordon <node-name>`
+> K8s Documentation for Cluster upgrade --> [Click Here](https://kubernetes.io/docs/tasks/administer-cluster/kubeadm/kubeadm-upgrade/)
+
+> Live Cluster Upgrade --> [Click Here](https://www.youtube.com/watch?v=_Z_n5jw9cUg)
+
+> How to create a DR ready Ckuster --> [Click Here](https://www.youtube.com/watch?v=qRPNuT080Hk)
+
+
 
 ## Important K8s Commands:
 
